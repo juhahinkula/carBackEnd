@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Owner {
 	@Id
@@ -17,6 +19,7 @@ public class Owner {
 	private String firstname, lastname;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="owner")
+	@JsonIgnore
 	private List<Car> cars;
 	
 	public Owner() {}
